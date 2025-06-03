@@ -1,9 +1,3 @@
-fn main() {
-    println!("{}", is_even(7));
-    println!("{}",fib(5) );
-    println!("{}", fib2(5));
-}
-
 fn is_even(num: i32) -> bool {
     if num % 2 == 0{
         return true;
@@ -37,4 +31,17 @@ fn fib2 ( num: u32 ) -> u32 {
     }
 
     return second;
+}
+
+fn get_str_length(str: String) ->usize{
+    str.chars().count()
+}
+
+fn main() {
+    println!("{}", is_even(7));
+    println!("{}",fib(5) );
+    println!("{}", fib2(5));
+    let name = String::from("saurabh");
+    let len = get_str_length(name);
+    println!("{}", len);
 }
