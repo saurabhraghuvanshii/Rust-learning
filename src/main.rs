@@ -46,15 +46,34 @@
 //     println!("{}", len);
 // }
 
-struct User {
-    name: String,
-    age: i32
+// struct User {
+//     name: String,
+//     age: i32
+// }
+
+// implementing structs
+
+struct Rect {
+    width: u32,
+    height: u32,
+}
+
+impl Rect {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
 }
 
 fn main() {
-    let user = User {
-        name: String::from("saurabh"),
-        age: 33,
+    // let user = User {
+    //     name: String::from("saurabh"),
+    //     age: 33,
+    // };
+    // println!("{} {}", user.name, user.age);
+
+    let rect = Rect {
+        width: 30,
+        height: 40
     };
-    println!("{} {}", user.name, user.age);
+    println!("the area of reactangle is {}", rect.area())
 }
