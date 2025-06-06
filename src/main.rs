@@ -53,27 +53,49 @@
 
 // implementing structs
 
-struct Rect {
-    width: u32,
-    height: u32,
-}
+// struct Rect {
+//     width: u32,
+//     height: u32,
+// }
 
-impl Rect {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
+// impl Rect {
+//     fn area(&self) -> u32 {
+//         self.width * self.height
+//     }
+// }
+
+// fn main() {
+//     // let user = User {
+//     //     name: String::from("saurabh"),
+//     //     age: 33,
+//     // };
+//     // println!("{} {}", user.name, user.age);
+
+//     let rect = Rect {
+//         width: 30,
+//         height: 40
+//     };
+//     println!("the area of reactangle is {}", rect.area())
+// }
+
+
+//Enums
+
+enum Shape {
+    Reactangle(f64, f64),
+    Circle(f64),
 }
 
 fn main() {
-    // let user = User {
-    //     name: String::from("saurabh"),
-    //     age: 33,
-    // };
-    // println!("{} {}", user.name, user.age);
+    let rect = Shape::Reactangle(1.0, 3.0);
+    calculate_area(rect);
+    let circle = Shape::Circle(2.0);
+    println!("{}",calculate_area(circle))
+}
 
-    let rect = Rect {
-        width: 30,
-        height: 40
-    };
-    println!("the area of reactangle is {}", rect.area())
+fn calculate_area(shape: Shape) -> f64 {
+    match shape{
+        Shape:: Reactangle(a,b ) => a*b,
+        Shape::Circle(r) => 3.14 * r* r
+    }
 }
