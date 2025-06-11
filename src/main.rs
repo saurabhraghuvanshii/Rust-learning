@@ -81,21 +81,40 @@
 
 //Enums
 
-enum Shape {
-    Reactangle(f64, f64),
-    Circle(f64),
-}
+// enum Shape {
+//     Reactangle(f64, f64),
+//     Circle(f64),
+// }
 
+// fn main() {
+//     let rect = Shape::Reactangle(1.0, 3.0);
+//     calculate_area(rect);
+//     let circle = Shape::Circle(2.0);
+//     println!("{}",calculate_area(circle))
+// }
+
+// fn calculate_area(shape: Shape) -> f64 {
+//     match shape{
+//         Shape:: Reactangle(a,b ) => a*b,
+//         Shape::Circle(r) => 3.14 * r* r
+//     }
+// }
+
+// Result enum 
+use std::fs::read_to_string; 
 fn main() {
-    let rect = Shape::Reactangle(1.0, 3.0);
-    calculate_area(rect);
-    let circle = Shape::Circle(2.0);
-    println!("{}",calculate_area(circle))
-}
+   let result = read_to_string("/home/saurabh/learning/Rust-learning/a.txt");
 
-fn calculate_area(shape: Shape) -> f64 {
-    match shape{
-        Shape:: Reactangle(a,b ) => a*b,
-        Shape::Circle(r) => 3.14 * r* r
+    match result {
+    //   Ok(data) => println!("{}", data),
+    //   Err(_err) => println!("Error while reading the file")
+
+    // Pattern matching oon the result
+        Ok(file_content) => {
+            println!("file read successfully: {:?}", file_content);
+        },
+        Err(error) => {
+            println!("Failed to read file: {:?}", error);
+        }
     }
 }
